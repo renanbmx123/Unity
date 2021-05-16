@@ -22,5 +22,5 @@ TEST(Foo, TestFoo1)
 TEST(Foo, TestFoo2)
 {
   // This test will fail
-  TEST_ASSERT_EQUAL(2, foo(1,2));
+  TEST_ASSERT_EQUAL(-2, foo(1,2));
 }
