@@ -1,3 +1,3 @@
 
-int payment(float value, char status[20]);
+int payment(float value, char status[]);
 

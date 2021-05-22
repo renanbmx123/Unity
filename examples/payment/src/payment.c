@@ -8,7 +8,8 @@ const char vip[] = "vip";
 
 static int strcmp(const char *s1, const char *s2)
 {
-  for(int i=0; i<20; i++)
+  int size = sizeof(s2);
+  for(int i=0; i< size; i++)
   {
     if(s1[i]=='\0') break;
     if(s1[i]!=s2[i]) return 0;
@@ -16,7 +17,7 @@ static int strcmp(const char *s1, const char *s2)
   return 1;
 }
 
-int payment(float value, char status[20])
+int payment(float value, char status[])
 {
   if(value >= 0.01f && value <= 99999.00f){
     if(strcmp(status,regular)) return 0;

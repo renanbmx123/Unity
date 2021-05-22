@@ -17,7 +17,7 @@ TEST_TEAR_DOWN(Payment)
 TEST(Payment, ValueMin)
 {
   float value = 0.01;
-  char status[20] = "estudante";
+  char status[] = "estudante";
 
   TEST_ASSERT_EQUAL(0,payment(value,status));
 }
@@ -25,7 +25,7 @@ TEST(Payment, ValueMin)
 TEST(Payment, ValueMax)
 {
   float value = 99999.00;
-  char status[20] = "vip";
+  char status[] = "vip";
 
   TEST_ASSERT_EQUAL(0,payment(value,status));
 }
@@ -33,7 +33,7 @@ TEST(Payment, ValueMax)
 TEST(Payment, ValueMiddle)
 {
   float value = 1000.52;
-  char status[20] = "aposentado";
+  char status[] = "aposentado";
 
   TEST_ASSERT_EQUAL(0,payment(value,status));
 }
@@ -41,7 +41,7 @@ TEST(Payment, ValueMiddle)
 TEST(Payment, ValueBelow)
 {
   float value = 0.00;
-  char status[20] = "regular";
+  char status[] = "regular";
 
   TEST_ASSERT_EQUAL(1,payment(value,status));
 }
@@ -49,7 +49,7 @@ TEST(Payment, ValueBelow)
 TEST(Payment, ValueAbove)
 {
   float value = 99999.01;
-  char status[20] = "regular";
+  char status[] = "regular";
 
   TEST_ASSERT_EQUAL(1,payment(value,status));
 }
@@ -57,7 +57,7 @@ TEST(Payment, ValueAbove)
 TEST(Payment, StatusIncorrect)
 {
   float value = 5000.63;
-  char status[20] = "error";
+  char status[] = "error";
 
   TEST_ASSERT_EQUAL(2,payment(value,status));
 }
