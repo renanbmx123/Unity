@@ -1,0 +1,87 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[portuguese]{babel}
+\usepackage{blindtext}
+
+\usepackage{caption}
+\usepackage[compact]{titlesec}
+\usepackage{multicol}
+\usepackage[a4paper, total={7.5in, 10in}]{geometry}
+\usepackage[font=scriptsize,labelfont=bf]{caption}
+\usepackage{listings}
+\usepackage{color}
+ 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+ 
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+ 
+\lstset{style=mystyle}
+
+\setlength{\columnsep}{1cm}
+\setlength{\parindent}{0em}
+\titlespacing{\section}{1pt}{*0.5}{*0.5}
+\begin{document}
+
+\textbf{Teste e Confiabilidade de Sistemas}\newline
+\textbf{Aula 5 - Atividade de Entrega} \newline
+\textbf{Alunos: Cristiane Santos e Renan Alves}\newline
+
+\section{Testes e implementação da função 'payment'}
+Para rodar os testes use o comando `make`.\newline
+
+\section{Classes de Equivalência}
+\begin{center}
+ \begin{tabular}{||c c c ||} 
+ \hline
+ Variável de entrada & Classes de equivalência válidas & Classes de equivalência inválidas\\
+ \hline\hline
+ Valor (v) do pagamento & 0,01 \le v \le 99.999,00 & (v menor que 0,01) \| (v > 99.999,00)\\
+ \hline
+ Status (s) do Assinante & s faz parte da lista de strings aceitas & s não faz parte da lista de strings aceitas \\
+ \hline
+\end{tabular}
+\end{center}
+
+\section{Casos de Teste}
+\begin{center}
+ \begin{tabular}{||c c c ||} 
+ \hline
+ Valor (v) & Status (s) do Assinante & Saída Esperada \\
+ \hline\hline
+ 0.01 & estudante & 0 \\ 
+ \hline
+ 99999.00 & vip & 0 \\
+ \hline
+ 1000.52 & aposentado & 0 \\
+ \hline
+ 00.00 & regular & 1 \\
+ \hline
+ 99999.01 & regular & 1 \\
+ \hline
+ 5000.63 & teste & 2 \\
+ \hline 
+\end{tabular}
+\end{center}
+
+\end{document}
